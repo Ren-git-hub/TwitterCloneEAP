@@ -14,4 +14,6 @@ public interface UserRepo extends JpaRepository<Users, Integer> {
     @Query("SELECT u FROM Users u WHERE u.is_subscriber=:isSubscriber")
     List<Users> findUsersByIs_subscriber(@Param("isSubscriber") boolean isSubscriber);
 
+
+    Users findUsersByUsername(String username);
 }

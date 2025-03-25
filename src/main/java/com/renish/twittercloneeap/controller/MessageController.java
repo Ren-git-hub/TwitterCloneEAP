@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/messageList")
+@RequestMapping("/messages")
 public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @GetMapping()
+    @GetMapping("/messageList")
     public ResponseEntity<?> getMessageList(){
         return new ResponseEntity<List<Messages>>(messageService.getAllMessages(), HttpStatus.OK);
     }
