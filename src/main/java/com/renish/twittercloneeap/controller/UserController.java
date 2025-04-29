@@ -5,6 +5,8 @@ import com.renish.twittercloneeap.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -46,4 +48,11 @@ public class UserController {
     public ResponseEntity<String> deleteUser(@PathVariable int id){
         return new ResponseEntity<>(userService.deleteUser(id), HttpStatus.OK);
     }
+
+    @GetMapping("/welcome")
+    public String welcome(@RequestParam String token, Model model) {
+        model.addAttribute("token", token);
+        return "welcome to TwitterCloneEAP Application";
+    }
+
 }

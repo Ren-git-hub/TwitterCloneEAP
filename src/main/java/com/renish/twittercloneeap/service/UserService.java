@@ -59,4 +59,8 @@ public class UserService {
         userRepo.deleteById(id);
         return "Delete successful";
     }
+
+    public String getAccessToken() {
+        return "Welcome to Twitter Clone EAP";
+    }
 }
